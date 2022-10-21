@@ -1,3 +1,5 @@
 #!/usr/bin/python3
 """"creating blue print for flask rest api routing"""
-from flask import Blue
+from flask import Blueprint
+
+app_views = Blueprint('app_views', )
