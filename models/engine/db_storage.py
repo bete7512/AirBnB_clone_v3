@@ -82,3 +82,6 @@ class DBStorage:
     def close(self):
         """Close the working SQLAlchemy session."""
         self.__session.close()
+    def get(self,cls,id):
+        '''''get'''
+        key_obj = models.storage.all(cls)
