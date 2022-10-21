@@ -70,4 +70,4 @@ class FileStorage:
         self.reload()
     def get(self,cls,id):
         '''''get'''
-        
+        key_obj = models.storage.all(cls)
