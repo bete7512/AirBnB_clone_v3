@@ -10,4 +10,5 @@ from models.state import State
 from datetime import datetime
 import uuid
 
-@app_views.route('/states')
+@app_views.route('/states/<state_id>/cities')
+def list_all_cities
