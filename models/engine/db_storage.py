@@ -90,4 +90,8 @@ class DBStorage:
             value = cls+'.'+id
             if key == value:
                 return i
+        return None
+    
+    def count(self,clas=None):
+        '''''conter'''
         
