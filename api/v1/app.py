@@ -8,3 +8,5 @@ from flask_cors import CORS,cross_origin
 
 app=Flask(__name__)
 cors = CORS(app,resources={r"/api/*":{"origins":"*"}})
+app.url_map.strict_slashes = False
+app.register_blueprint(app_views)
