@@ -92,6 +92,7 @@ class DBStorage:
                 return i
         return None
     
-    def count(self,clas=None):
+    def count(self,cls=None):
         '''''conter'''
         key_obj_pair = models.storage.all(cls)
+        return len(key_obj_pair)
