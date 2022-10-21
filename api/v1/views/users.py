@@ -10,4 +10,4 @@ import uuid
 @app_views.route('/users/',methods=['GET'])
 def list_users():
     """"list users """
-    list_users
+    list_users = [user.to_dict() for user in storage.all("User").values()]
