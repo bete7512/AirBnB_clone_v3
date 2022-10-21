@@ -10,4 +10,9 @@ import uuid
 @app_views.route('/amenities',methods=['GET'])
 def amenity_lists():
     """"amenity fetch"""
-    amenities = 
+    amenities = [key.to_dict() for key in storage.all("Amenity").values]
+    return jsonify(amenities)
+@app_views('/<id>')
+def get_amenity_by_id(id):
+    """"fetch amenity by amenity ID"""
+    amenities = storage.all("Amenity").values()
