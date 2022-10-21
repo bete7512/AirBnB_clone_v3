@@ -10,4 +10,10 @@ import uuid
 @app_views.route('/users/',methods=['GET'])
 def list_users():
     """"list users """
-    list_users = [user.to_dict() for user in storage.all("User").values()]
+    users = [user.to_dict() for user in storage.all("User").values()]
+    return jsonify(users)
+@app_views.route('/users/<user_id>',methods=['GET'])
+def get_user_by_id(user_id):
+    """"fetch user data by id """
+    users = storage.all("User").values()
+    user = [user.to_dict() for user in ]
