@@ -16,4 +16,10 @@ def list_all_cities(state_id):
     current_state = [key.to_dict() for key in all_states if key.id == state_id]
     if current_state == []:
         abort(404)
-     all_cities = [key.to_dict() for key ] 
+    all_cities = [key.to_dict() for key in storage.all("City").values()
+     if state_id == key.id ] 
+    return jsonify(all_cities)
+@app_views.route('/states/<state_id>/cities', methods=['POST'])
+def add_new_city:
+    """"add new city"""
+    
