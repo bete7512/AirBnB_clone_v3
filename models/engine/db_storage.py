@@ -86,4 +86,5 @@ class DBStorage:
     def get(self,cls,id):
         '''''get'''
         key_obj = models.storage.all(cls)
-        for key
+        for key, i in key_obj.items():
+            
