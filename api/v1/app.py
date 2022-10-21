@@ -15,3 +15,5 @@ app.register_blueprint(app_views)
 def tear(self):
     ''''''''
     storage.close()
+@app.errorhandler(404)
+def path
