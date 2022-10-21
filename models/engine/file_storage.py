@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines the FileStorage class."""
 import json
+import models
 from models.base_model import BaseModel
 from models.amenity import Amenity
 from models.city import City
@@ -68,4 +69,16 @@ class FileStorage:
     def close(self):
         """Call the reload method."""
         self.reload()
+    def get(self,cls,id):
+        '''''get'''
+        key_obj = models.storage.all(cls)
+        for key, i in key_obj.items():
+            value = cls+'.'+id
+            if key == value:
+                return i
+        return None
     
+    def count(self,cls=None):
+        '''''conter'''
+        key_obj_pair = models.storage.all(cls)
+        return len(key_obj_pair)
