@@ -20,6 +20,11 @@ def list_all_cities(state_id):
      if state_id == key.id ] 
     return jsonify(all_cities)
 @app_views.route('/states/<state_id>/cities', methods=['POST'])
-def add_new_city:
+def add_new_city():
     """"add new city"""
+    if not request.get_json():
+        abort(400,'Not a JSON')
+    if 'name' not in request.get_json():
+        abort(400,'Missing name')
     
+
