@@ -64,4 +64,13 @@ def delete_city_by_id(city_id):
             break
     return jsonify({}),200
 
-@app_views.route
+@app_views.route('/cities/<city_id>', methods=['PUT'])
+def update_city(city_id):
+    """""update city by thier Id """
+    all_cities = storage.all('City').values()
+    single_city = [key.to_dict() for key in all_cities if key.id == city_id]
+    if single_city == []:
+        abort(404)
+    if not request.get_json():
+        abort(400,'Not a JSON')
+    single_city   
