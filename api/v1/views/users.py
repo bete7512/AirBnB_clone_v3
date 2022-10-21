@@ -28,4 +28,16 @@ def delete_user_by_id(user_id):
     user = [user.to_dict() for user in users if user.id == user_id]
     if user == []:
         abort(404)
-    user.remove
+    user.remove(user[0])
+    for user in users:
+        if user.id == user_id:
+            storage.delete(user)
+            storage.save()
+            break
+    return jsonify({}),200
+@app_views('/users/',methods=['POST'])
+def add_new_user():
+    if not request.get_json():
+        abort(400,'Not a JSON')
+    if 'email' not in request.get_json():
+        abort(400,)
