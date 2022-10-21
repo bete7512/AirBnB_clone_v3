@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """"amenities"""
 from crypt import methods
-# import json
 from api.v1.views import app_views
 from flask import jsonify, abort, request
 from models import storage
