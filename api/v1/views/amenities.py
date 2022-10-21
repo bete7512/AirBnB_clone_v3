@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """"amenities"""
 from crypt import methods
-import json
+# import json
 from api.v1.views import app_views
 from flask import jsonify, abort, request
 from models import storage
@@ -50,3 +50,8 @@ def update_amenity(id):
     if not request.get_json():
         abort(400,'Not a JSON')
     single_amenity[0]['name'] = request.json['name']
+    for key in amenities:
+        if key.id == id:
+            key.name = request.json['name']
+    storage.save()
+    return jsonify(single_amenity[0]),200
