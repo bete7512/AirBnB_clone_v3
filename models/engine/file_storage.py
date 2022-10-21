@@ -70,3 +70,4 @@ class FileStorage:
         self.reload()
     def get(self,cls,id):
         '''''get'''
+        
