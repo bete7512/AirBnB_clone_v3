@@ -42,4 +42,11 @@ def add_new_amenity():
     amenities.append(new_amenity.to_dict())
     return jsonify(amenities[0]),201
 @app_views.route('/amenities/<id>',methods=['PUT'])
-def 
+def update_amenity(id):
+    amenities = storage.all("Amenity").values()
+    single_amenity = [key.to_dict() for key in amenities if key.id == id]
+    if single_amenity == []:
+        abort(404)
+    if not request.get_json():
+        abort(400,'Not a JSON')
+    single_amenity[0]['name'] = request.json['name']
