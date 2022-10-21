@@ -69,4 +69,4 @@ class FileStorage:
         """Call the reload method."""
         self.reload()
     def get(self,cls,id):
-        ''''''''
+        '''''get'''
