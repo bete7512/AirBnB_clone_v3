@@ -16,4 +16,6 @@ def tear(self):
     ''''''''
     storage.close()
 @app.errorhandler(404)
-def path
+def path_not_found(error):
+    ''''''''
+    return make_response()
