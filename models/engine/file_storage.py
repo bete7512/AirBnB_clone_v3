@@ -69,7 +69,8 @@ class FileStorage:
     def close(self):
         """Call the reload method."""
         self.reload()
-    def get(self,cls,id):
+
+    def get(self, cls, id):
         '''''get'''
         key_obj = models.storage.all(cls)
         for key, i in key_obj.items():
@@ -77,8 +78,8 @@ class FileStorage:
             if key == value:
                 return i
         return None
-    
-    def count(self,cls=None):
+
+    def count(self, cls=None):
         '''''conter'''
         key_obj_pair = models.storage.all(cls)
         return len(key_obj_pair)
