@@ -26,5 +26,6 @@ def status():
 def count():
     '''object counter'''
     key_obj_pair = {}
-    for clas in classes:
-        key_obj_pair[cls] = 
+    for cls in classes:
+        key_obj_pair[cls] = storage.count(classes[cls])
+    return jsonify(key_obj_pair)
