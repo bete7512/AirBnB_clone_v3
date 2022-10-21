@@ -94,4 +94,4 @@ class DBStorage:
     
     def count(self,clas=None):
         '''''conter'''
-        
+        key_obj_pair = models.storage.all(cls)
