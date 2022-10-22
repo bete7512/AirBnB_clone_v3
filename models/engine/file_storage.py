@@ -96,8 +96,9 @@ class FileStorage:
     def count(self, cls=None):
         """
         """
-        if cls is None:
-            return len(self.__objects)
-        if cls in self.__models_available:
-            return len(self.all(cls))
-        return -1
+        # if cls is None:
+        #     return len(self.__objects)
+        # if cls in self.__models_available:
+        #     return len(self.all(cls))
+        obj_dict = self.all(cls)
+        return len(obj_dict)
