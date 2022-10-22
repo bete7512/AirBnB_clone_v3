@@ -23,6 +23,18 @@ class FileStorage:
     __file_path = "file.json"
     # dictionary - empty but will store all objects by <class name>.id
     __objects = {}
+    # __file_path = "file.json"
+    # if os.getenv("FS_TEST", "no") == "yes":
+    #     __file_path = "test_file.json"
+    # __objects = {}
+
+    def __init__(self):
+        """Instantiate the class"""
+        self.__models_available = {"User": User, "BaseModel": BaseModel,
+                                   "Amenity": Amenity, "City": City,
+                                   "Place": Place, "Review": Review,
+                                   "State": State}
+        self.reload()
 
     def all(self, cls=None):
         """returns the dictionary __objects"""
@@ -69,17 +81,22 @@ class FileStorage:
         """call reload() method for deserializing the JSON file to objects"""
         self.reload()
 
-    def get(self, cls, id):
-        '''  '''
-        obj_dict = self.all(cls)
-        for k, v in obj_dict.items():
-            matchstring = cls + '.' + id
-            if k == matchstring:
-                return v
-
+    def get(self, cls, id_):
+        """
+        """
+        if (cls not in self.__models_available.keys()) or (id_ is None):
+            return None
+        all_objs = self.all(cls)
+        for k in all_objs.keys():
+            if k == id_:
+                return all_objs[k]
         return None
 
     def count(self, cls=None):
-        ''' '''
-        obj_dict = self.all(cls)
-        return len(obj_dict)
+        """
+        """
+        if cls is None:
+            return len(self.__objects)
+        if cls in self.__models_available:
+            return len(self.all(cls))
+        return -1
