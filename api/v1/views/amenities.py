@@ -9,7 +9,6 @@ from datetime import datetime
 import uuid
 
 
-# @app_views.route('/amenities', methods=['GET'])
 @app_views.route('/amenities/', methods=['GET'])
 def amenity_lists():
     '''  '''
