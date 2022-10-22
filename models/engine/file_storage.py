@@ -4,6 +4,7 @@ Contains the FileStorage class
 """
 
 import json
+import os
 from models.amenity import Amenity
 from models.base_model import BaseModel
 from models.city import City
@@ -24,8 +25,8 @@ class FileStorage:
     # dictionary - empty but will store all objects by <class name>.id
     __objects = {}
     # __file_path = "file.json"
-    # if os.getenv("FS_TEST", "no") == "yes":
-    #     __file_path = "test_file.json"
+    if os.getenv("FS_TEST", "no") == "yes":
+        __file_path = "test_file.json"
     # __objects = {}
 
     def __init__(self):
