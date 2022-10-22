@@ -10,6 +10,7 @@ import uuid
 
 
 @app_views.route('/amenities/', methods=['GET'])
+@app_views.route('/amenities', methods=['GET'])
 def amenity_lists():
     '''  '''
     amenities = [key.to_dict() for key in storage.all("Amenity").values()]
