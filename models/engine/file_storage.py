@@ -35,7 +35,7 @@ class FileStorage:
                                    "Amenity": Amenity, "City": City,
                                    "Place": Place, "Review": Review,
                                    "State": State}
-        self.reload()
+        # self.reload()
 
     def all(self, cls=None):
         """returns the dictionary __objects"""
@@ -82,14 +82,14 @@ class FileStorage:
         """call reload() method for deserializing the JSON file to objects"""
         self.reload()
 
-    def get(self, cls, id_):
+    def get(self, cls, id):
         """
         """
-        if (cls not in self.__models_available.keys()) or (id_ is None):
+        if (cls not in self.__models_available.keys()) or (id is None):
             return None
         all_objs = self.all(cls)
         for k in all_objs.keys():
-            if k == id_:
+            if k == id:
                 return all_objs[k]
         return None
 
