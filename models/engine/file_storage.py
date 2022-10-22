@@ -90,6 +90,7 @@ class FileStorage:
         all_objs = self.all(cls)
         for k in all_objs.keys():
             if k == id:
+                return 
                 return all_objs[k]
         return None
 
