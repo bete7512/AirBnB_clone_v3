@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """"states"""
-from tkinter import Place
 from api.v1.views import app_views
 from flask import jsonify, abort, request
 from models import storage
 from models.state import State
+from models.place import Place
 from datetime import datetime
 import uuid
 
