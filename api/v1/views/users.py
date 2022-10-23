@@ -8,6 +8,7 @@ from models.user import User
 from datetime import datetime
 import uuid
 
+
 @app_views.route('/users/', methods=['GET'])
 @app_views.route('/users', methods=['GET'])
 def list_users():
@@ -48,12 +49,14 @@ def add_new_user():
     if not request.get_json():
         abort(400, 'Not a JSON')
     if 'email' not in request.get_json():
-        abort(400, 'Missing name')
+        abort(400, 'Missing email')
     if 'password' not in request.get_json():
-        abort(400, 'Missing name')
+        abort(400, 'Missing password')
     users = []
-    new_user = User(email=request.json['email'],
-                    password=request.json['password'])
+    new_user = User(
+        email=request.json['email'],
+        password=request.json['password'],
+    )
     storage.new(new_user)
     storage.save()
     users.append(new_user.to_dict())

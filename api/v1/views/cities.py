@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """"cities fetching"""
+from crypt import methods
 from datetime import datetime
 from api.v1.views import app_views
 
@@ -11,7 +12,7 @@ from datetime import datetime
 import uuid
 
 
-@app_views.route('/states/<state_id>/cities')
+@app_views.route('/states/<state_id>/cities',methods=['GET'])
 def list_all_cities(state_id):
     all_states = storage.all("State").values()
     current_state = [key.to_dict() for key in all_states if key.id == state_id]
@@ -50,7 +51,7 @@ def get_city_by_id(city_id):
     return jsonify(single_city[0])
 
 
-@app_views.route('/cities/<city_id>', methods=['POST'])
+@app_views.route('/cities/<city_id>', methods=['DELETE'])
 def delete_city_by_id(city_id):
     """"delete city from storage"""
     all_cities = storage.all("City").values()
