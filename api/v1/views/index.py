@@ -1,31 +1,34 @@
 #!/usr/bin/python3
-"""
-App views for AirBnB_clone_v3
-"""
+"""first routes"""
 
+from api.v1.views import app_views
 from flask import jsonify
 from models import storage
-from api.v1.views import app_views
+from models.user import User
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
+
+classes = {"users": "User",
+           "cities": "City",
+           'reviews': "Review",
+           'places': 'Place',
+           'amenities': 'Amenity',
+           }
 
 
-@app_views.route('/status')
+@app_views.route('/status', methods=['GET'])
 def status():
-    """ returns status """
-    status = {"status": "OK"}
-    return jsonify(status)
+    """"""""
+    return jsonify({'status': 'OK'})
 
 
-@app_views.route('/stats')
+@app_views.route('/stats', methods=['GET'])
 def count():
-    """ returns number of each objects by type """
-    total = {}
-    classes = {"Amenity": "amenities",
-               "City": "cities",
-               "Place": "places",
-               "Review": "reviews",
-               "State": "states",
-               "User": "users"}
+    '''object counter'''
+    key_obj_pair = {}
     for cls in classes:
-        count = storage.count(cls)
-        total[classes.get(cls)] = count
-    return jsonify(total)
+        key_obj_pair[cls] = storage.count(classes[cls])
+    return jsonify(key_obj_pair)
