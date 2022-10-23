@@ -104,5 +104,37 @@
         "updated_at": "2022-10-23T10:28:43.653174",
         "id": "25431a5d-2222-43b1-b258-a6697de7977e",
         "__class__": "User"
+    },
+    "City.5c1697c6-741c-4eed-b784-c21fbeba2b5a": {
+        "name": "Alexandria",
+        "state_id": "fabf25fc-a590-4880-b650-4f238d03a1a2",
+        "created_at": "2022-10-23T12:42:59.283127",
+        "updated_at": "2022-10-23T12:42:59.283134",
+        "id": "5c1697c6-741c-4eed-b784-c21fbeba2b5a",
+        "__class__": "City"
+    },
+    "City.d81233e0-8aa6-42b1-8823-9b127ee361e1": {
+        "name": "Alexandria",
+        "state_id": "fabf25fc-a590-4880-b650-4f238d03a1a2",
+        "created_at": "2022-10-23T12:43:03.183542",
+        "updated_at": "2022-10-23T12:43:03.183548",
+        "id": "d81233e0-8aa6-42b1-8823-9b127ee361e1",
+        "__class__": "City"
+    },
+    "City.9d54a128-f74f-476e-8e0d-d8a3a2bbbfe4": {
+        "name": "Alexandria",
+        "state_id": "fabf25fc-a590-4880-b650-4f238d03a1a2",
+        "created_at": "2022-10-23T12:43:04.592462",
+        "updated_at": "2022-10-23T12:43:04.592468",
+        "id": "9d54a128-f74f-476e-8e0d-d8a3a2bbbfe4",
+        "__class__": "City"
+    },
+    "City.08a20058-5754-48ad-93e5-59278a8f566c": {
+        "name": "Alexandria",
+        "state_id": "fabf25fc-a590-4880-b650-4f238d03a1a2",
+        "created_at": "2022-10-23T12:43:06.053210",
+        "updated_at": "2022-10-23T12:43:06.053216",
+        "id": "08a20058-5754-48ad-93e5-59278a8f566c",
+        "__class__": "City"
     }
 }

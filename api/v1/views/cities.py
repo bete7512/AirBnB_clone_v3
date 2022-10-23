@@ -11,7 +11,7 @@ from datetime import datetime
 import uuid
 
 
-@app_views.route('/states/<state_id>/cities/',methods=['GET'])
+@app_views.route('/states/<state_id>/cities/', methods=['GET'])
 def list_all_cities(state_id):
 
     all_states = storage.all("State").values()
