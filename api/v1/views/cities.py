@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """"cities fetching"""
-from crypt import methods
 from datetime import datetime
 from api.v1.views import app_views
 
@@ -14,6 +13,7 @@ import uuid
 
 @app_views.route('/states/<state_id>/cities',methods=['GET'])
 def list_all_cities(state_id):
+
     all_states = storage.all("State").values()
     current_state = [key.to_dict() for key in all_states if key.id == state_id]
     if current_state == []:
@@ -37,6 +37,7 @@ def add_new_city(state_id):
     cities = []
     new_city = City(name=request.json['name'], state_id=state_id)
     storage.new(new_city)
+    storage.save()
     cities.append(new_city.to_dict())
     return jsonify(cities[0]), 201
 
