@@ -22,7 +22,6 @@ def list_all_cities(state_id):
     all_cities_s = storage.all("City").values()
     all_cities = [key.to_dict() for key in all_cities_s
                   if state_id == key.state_id]
-    print(all_cities_s)
     return jsonify(all_cities)
 
 
