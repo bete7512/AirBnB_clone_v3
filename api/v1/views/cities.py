@@ -11,15 +11,18 @@ from datetime import datetime
 import uuid
 
 
-@app_views.route('/states/<state_id>/cities',methods=['GET'])
+@app_views.route('/states/<state_id>/cities/',methods=['GET'])
 def list_all_cities(state_id):
 
     all_states = storage.all("State").values()
     current_state = [key.to_dict() for key in all_states if key.id == state_id]
     if current_state == []:
         abort(404)
-    all_cities = [key.to_dict() for key in storage.all("City").values()
-                  if state_id == key.id]
+    print(state_id)
+    all_cities_s = storage.all("City").values()
+    all_cities = [key.to_dict() for key in all_cities_s
+                  if state_id == key.state_id]
+    print(all_cities_s)
     return jsonify(all_cities)
 
 
